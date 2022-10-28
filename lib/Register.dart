@@ -8,7 +8,7 @@ class Register extends StatefulWidget {
   _MyRegisterState createState() => _MyRegisterState();
 }
 class _MyRegisterState extends State<Register> {
-  GlobalKey<FormState> thekey =GlobalKey<FormState>();
+ GlobalKey<FormState> Thekey =GlobalKey<FormState>();
 
 
   @override
@@ -54,7 +54,12 @@ class _MyRegisterState extends State<Register> {
                               hintText: "Name",
                               enabledBorder: OutlineInputBorder(
                               borderSide: BorderSide(color: Colors.purple, width: 3.0),
-                              borderRadius: BorderRadius.circular(2),)),),
+                              borderRadius: BorderRadius.circular(2),)),validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter your Email';
+                                }
+                                return null;
+                              },),
                               const SizedBox(height: 40,),
 
 
@@ -66,7 +71,12 @@ class _MyRegisterState extends State<Register> {
                                hintText: "Mobile number",
                                enabledBorder: OutlineInputBorder(
                                borderSide: BorderSide(color: Colors.purple, width: 3.0),
-                               borderRadius: BorderRadius.circular(2),)),),
+                               borderRadius: BorderRadius.circular(2),)),validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter your Email';
+                                }
+                                return null;
+                              },),
                                const SizedBox(height: 40,),
 
                             TextFormField(
@@ -77,7 +87,12 @@ class _MyRegisterState extends State<Register> {
                                   hintText: "Email or contact info",
                                   enabledBorder: OutlineInputBorder(
                                     borderSide: BorderSide(color: Colors.purple, width: 3.0),
-                                    borderRadius: BorderRadius.circular(2),)),),
+                                    borderRadius: BorderRadius.circular(2),)),validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter your Email';
+                                }
+                                return null;
+                              },),
                                    const SizedBox(height: 40,),
 
                             TextFormField(
@@ -91,7 +106,12 @@ class _MyRegisterState extends State<Register> {
                                     borderRadius: BorderRadius.circular(2),)
                               ),
 
-                                ),
+                               validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please enter your Email';
+                                }
+                                return null;
+                              }, ),
                                    const SizedBox(height: 40,),
 
                           Row(
@@ -110,10 +130,13 @@ class _MyRegisterState extends State<Register> {
                                 child: IconButton(
                                     color: Colors.white,
                                     onPressed: () {
+                                       final form = Thekey.currentState;
+                                          if (form!.validate()) {
                                       Navigator.push(
                                         context,
                                         MaterialPageRoute(builder: (context) =>  myLogin()),
                                       );
+                                          }
                                     },
                                     icon: Icon(Icons.arrow_forward,)),
                               )

@@ -10,7 +10,7 @@ void main(){
   //Runapp: ay haga aktebha betersemo 3al screen(runnng mel akher)
   runApp(const MaterialApp(
     title: 'Navigation Basics',
-    home: myLogin(),
+    home: Welcomepage(),
   ));
 }
 /* buildcontext is a special object type provided by flutter

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yarab/Register.dart';
-
+import 'package:yarab/User/FitnessApp.dart';
 
 
 class myLogin extends StatefulWidget {
@@ -10,7 +10,7 @@ class myLogin extends StatefulWidget {
   State<myLogin> createState() => Login();
 }
 class Login extends State<myLogin> {
-  final _formKey = GlobalKey<FormState>();
+  final Thekey = GlobalKey<FormState>();
 
 
   @override
@@ -24,7 +24,36 @@ class Login extends State<myLogin> {
           width:250.00, ),
         toolbarHeight: 150,
       ),
-
+      drawer: Drawer(
+       child: ListView(
+         children:  <Widget>[
+           UserAccountsDrawerHeader(
+             decoration: BoxDecoration(
+               color: Color(0xFF9340BA),
+             ),
+             accountName: Text("VIBES GYM",style: TextStyle( fontSize: 21, fontFamily: 'Poppins')),
+             accountEmail: Text(''), ),
+           ListTile(
+             leading:Icon(Icons.home_outlined),
+             title:const Text('Home',style: TextStyle( fontSize: 17)),
+               onTap: (){ Navigator.pop(context);
+               },
+           ),
+           ListTile(
+             leading:Icon(Icons.person),
+             title:const Text('Profile',style: TextStyle(fontSize: 17)),
+             onTap: (){ Navigator.pop(context);
+             },
+           ),
+           ListTile(
+             leading:Icon(Icons.logout_outlined),
+             title:const Text('Logout',style: TextStyle(fontSize: 17)),
+             onTap: (){ Navigator.pop(context);
+             },
+           )
+         ],
+       ),
+      ),
       body: Stack(
         children: [
 
@@ -33,11 +62,11 @@ class Login extends State<myLogin> {
             child: const Text(
               'Login',
               style: TextStyle(color: Colors.black, fontSize: 36,fontWeight: FontWeight.bold,),),),
-
-          Container(
+    SingleChildScrollView(
+    child:Container(
             margin: EdgeInsets.only(left: 35, right: 35, top: 150),
-    child: Form(
-            key: _formKey,
+            child: Form(
+            key: Thekey,
             child: Column(
 
                 children: [
@@ -103,10 +132,12 @@ class Login extends State<myLogin> {
                         fontWeight: FontWeight.bold),
                   ),
                   onPressed: () {
-                    final form = _formKey.currentState;
+                    final form = Thekey.currentState;
                     if (form!.validate()) {
-                      form.save();
-                      print('saving user data');
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) =>  FitnessApp()),
+                      );
                     }
                   },),
 
@@ -136,6 +167,7 @@ class Login extends State<myLogin> {
             ),
 
           ),
+    ),
           ),
         ],
       ),

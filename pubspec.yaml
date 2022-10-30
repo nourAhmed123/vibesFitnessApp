@@ -64,8 +64,19 @@ flutter:
     - images/sora.PNG
     - images/login.jpeg
     - images/soora.PNG
-  #   - images/a_dot_ham.jpeg
-
+    - images/background.PNG
+    - images/Capture2.PNG
+    - images/classes.jpg
+    - images/pt.jpg
+    - images/soragededaPNG.PNG
+    - images/spa.jpg
+    - images/images.png
+    - images/1.jpg
+    - images/Logo.PNG
+    - images/spa-768x512.jpg
+    - images/shutterstock_1447852889-1-1-800x534.jpg
+    - images/profilee.jpg
+    - images/Massage-Aromatherapy.jpeg
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
